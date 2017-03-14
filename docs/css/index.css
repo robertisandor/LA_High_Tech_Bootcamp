@@ -1,0 +1,60 @@
+#scrollableHeader {
+  background-color: #000000;
+  padding-top: 0.5em; }
+  #scrollableHeader button {
+    background-color: #0047AB;
+    color: #FFF;
+    font-size: 16px; }
+
+#mainbody {
+  margin-left: 6em;
+  width: 85%; }
+  #mainbody #about {
+    background-color: #C0C0C0;
+    color: #0047AB;
+    margin-top: 3.5em;
+    margin-bottom: .25em;
+    padding-top: 1em;
+    padding-bottom: 1em; }
+    #mainbody #about p {
+      font-size: 18px; }
+    #mainbody #about img {
+      border-radius: 32px; }
+  #mainbody #portfolio {
+    background-color: #C0C0C0;
+    color: #0047AB;
+    margin-bottom: .25em;
+    padding-top: 0.25em;
+    padding-bottom: 1em; }
+  #mainbody #contact {
+    background-color: #0047AB;
+    color: #FFF;
+    margin-bottom: -0.75em;
+    padding-top: 0.25em; }
+    #mainbody #contact form label {
+      display: block; }
+    #mainbody #contact form input {
+      width: 25em;
+      margin: 2px; }
+    #mainbody #contact form button {
+      background-color: #C0C0C0;
+      color: #0047AB;
+      border-color: #C0C0C0;
+      border-radius: 5px;
+      margin-bottom: 1em; }
+    #mainbody #contact #contactMessage {
+      width: 20%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding-bottom: 0.5em; }
+
+footer {
+  background-color: #000000;
+  color: #C0C0C0;
+  padding-bottom: 0.25em; }
+  footer img {
+    margin-top: 0.5em;
+    margin-right: 0.25em; }
+
+/*# sourceMappingURL=index.css.map */

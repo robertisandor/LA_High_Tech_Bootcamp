@@ -1,0 +1,74 @@
+#scrollableHeader {
+  background-color: #000000;
+  padding-top: 0.5em;
+  button {
+    background-color: #0047AB;
+    color: #FFF;
+    font-size: 16px;
+  }
+}
+
+#mainbody {
+  margin-left: 6em;
+  width: 85%;
+  #about {
+    background-color: #C0C0C0;
+    color: #0047AB;
+    margin-top: 3.5em;
+    margin-bottom: .25em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    p {
+      font-size: 18px;
+    }
+    img {
+      border-radius: 32px;
+    }
+  }
+  #portfolio {
+    background-color: #C0C0C0;
+    color: #0047AB;
+    margin-bottom: .25em;
+    padding-top: 0.25em;
+    padding-bottom: 1em;
+  }
+  #contact {
+    background-color: #0047AB;
+    color: #FFF;
+    margin-bottom: -0.75em;
+    padding-top: 0.25em;
+    form {
+      label {
+        display: block;
+      }
+      input {
+        width: 25em;
+        margin: 2px;
+      }
+      button {
+        background-color: #C0C0C0;
+        color: #0047AB;
+        border-color: #C0C0C0;
+        border-radius: 5px;
+        margin-bottom: 1em;
+      }
+    }
+    #contactMessage {
+      width: 20%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding-bottom: 0.5em;
+    }
+  }
+}
+
+footer {
+  background-color: #000000;
+  color: #C0C0C0;
+  padding-bottom: 0.25em;
+  img {
+    margin-top: 0.5em;
+    margin-right: 0.25em;
+  }
+}
