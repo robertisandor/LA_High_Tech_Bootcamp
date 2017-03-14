@@ -1,0 +1,13 @@
+header {
+    background: blue;
+    color: white;
+}
+
+#settings {
+    background: white;
+    color: blue;
+}
+
+#main {
+    background: black;
+}

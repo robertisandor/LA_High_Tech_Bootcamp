@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="colorGame.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="colorGame.js"></script>
+    <!-- add Bootstrap -->
+</head>
+
+<body onload="initializeColors()">
+    <header class="text-center">
+        <h3>THE GREAT</h3>
+        <h1>RGB(<span id="redValue"></span>, <span id="greenValue"></span>, <span id="blueValue"></span>)</h1>
+        <h3>COLOR GAME</h3>
+    </header>
+    <div id="settings" class="text-center">
+      <h4>
+        <span id="restart">New Colors</span>
+        <span id="response"></span>
+        <span id="easyMode">Easy</span>
+        <!-- 
+            By default, Easy is "clicked";
+            Would I use radio buttons?
+            make sure to change the background color of the "button" when it's "clicked"
+            -->
+        <span id="hardMode">Hard</span>
+        </h4>
+    </div>
+    <div id="main" class="text-center">
+        <!-- right now, the values are hardcoded; 
+            could I make this responsive with Bootstrap? 
+ I don't need to. SVG can be scalable if I use the viewBox & preserveAspectRatio attributes-->
+        <svg viewBox="0 0 100 25" preserveAspectRatio="xMidYMin" xmlns="http://www.w3.org/2000/svg">
+                <rect id="color1" onclick="checkIfColorMatches(this.id)" x="30%" y="10%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+                <rect id="color2" onclick="checkIfColorMatches(this.id)" x="45%" y="10%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+                <rect id="color3" onclick="checkIfColorMatches(this.id)" x="60%" y="10%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+                <rect id="color4" onclick="checkIfColorMatches(this.id)" x="30%" y="55%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+                <rect id="color5" onclick="checkIfColorMatches(this.id)" x="45%" y="55%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+                <rect id="color6" onclick="checkIfColorMatches(this.id)" x="60%" y="55%" width="10%" height="40%" rx="5%" ry="25%" fill="none"/>
+            </svg>
+    </div>
+</body>
+
+</html>

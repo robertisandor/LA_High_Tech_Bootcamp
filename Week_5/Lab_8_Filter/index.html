@@ -1,0 +1,185 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--<link rel="stylesheet" href="/client/css/style.css" />-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        .classtd {
+            border-style: solid;
+            border-size: 1px;
+        }
+    </style>
+    <script>
+        // Add your javascript here
+
+        $(document).ready(function() {
+
+            var data = [{
+                "name": "bob",
+                "age": 35,
+                "address": {
+                    "street": "6565 sunset blvd",
+                    "zip": "90028",
+                    "city": "Los Angeles"
+                }
+            }, {
+                "name": "angela",
+                "age": 25,
+                "address": {
+                    "street": "1234 Tropicana blvd",
+                    "zip": "89100",
+                    "city": "Las Vegas"
+                }
+            }, {
+                "name": "carol",
+                "age": 52,
+                "address": {
+                    "street": "4232 melrose ave",
+                    "zip": "90029",
+                    "city": "Los Angeles"
+                }
+            }, {
+                "name": "jack",
+                "age": 63,
+                "address": {
+                    "street": "1344 first street",
+                    "zip": "90105",
+                    "city": "Las Vegas"
+                }
+            }, {
+                "name": "celine",
+                "age": 21,
+                "address": {
+                    "street": "1344 first street",
+                    "zip": "10003",
+                    "city": "New York"
+                }
+            }, {
+                "name": "Luke",
+                "age": 74,
+                "address": {
+                    "street": "1344 first street",
+                    "zip": "10105",
+                    "city": "Bronx"
+                }
+            }, {
+                "name": "martin",
+                "age": 55,
+                "address": {
+                    "street": "1344 first street",
+                    "zip": "10108",
+                    "city": "Bronx"
+                }
+            }];
+            // put data into the table "#tbl"
+            // I need to create the table
+            // tables need rows and columns 
+            // for columns, use ths in that row
+            // otherwise, use tds
+            // clear content... of table?
+            // show just the content that's asked for
+            // remove the part that says "Please select the filter"? (#msg)
+            // if they want border cells, add classtd class to tds that are added
+            // use removeClass to remove the classtd class (from the tds)
+            // if no filter is selected, show the default (no table)
+            // use change method with filtercss to change style of table
+            // if they ask for different way, the style should carry over
+            // from previous instructions
+            // unless otherwise changed
+            // changing style should be its own function
+            function returnData() {
+                return data;
+            }
+
+            function sortByName(a, b) {
+                return a.name.toLowerCase() > b.name.toLowerCase();
+            }
+
+            function sortByAge(a, b) {
+                return a.age - b.age;
+            }
+
+            function sortByAddress(a, b) {
+                return a.address.street > b.address.street;
+            }
+
+            function checkStyling() {
+                var stylingOption = document.getElementById("filtercss");
+                console.log(stylingOption);
+                var stylingValue = stylingOption.options[stylingOption.selectedIndex].value;
+                console.log(stylingValue);
+                if (stylingValue == "wb") {
+                    $("td").addClass("classtd");
+                } else {
+                    $("td").removeClass("classtd");
+                }
+            }
+            $("#filter").change(function() {
+                var filterOption = document.getElementById("filter");
+                var columnTitle = filterOption.options[filterOption.selectedIndex].text;
+
+                $("table").empty();
+                $("#msg").empty();
+
+                console.log(columnTitle);
+                if (columnTitle != "Choose a filter") {
+                    $("table").append("<tr> <th>" + columnTitle + "</th> </tr>");
+
+                    columnTitle = columnTitle.toLowerCase();
+                    
+                    if (columnTitle == "name") {
+                        data.sort(sortByName);
+                    }
+                    else if (columnTitle == "age") {
+                        data.sort(sortByAge);
+                    }
+                    else if (columnTitle == "address") {
+                        data.sort(sortByAddress);
+                    }
+                    data.forEach(function(object) {
+                        if (columnTitle != "address") {
+                            $("table").append("<tr> <td>" + object[columnTitle] + "</td> </tr>");
+                        }
+                        else {
+                            $("table").append("<tr> <td> " + object[columnTitle].street + " " +
+                                object[columnTitle].city + " " + object[columnTitle].zip);
+                        }
+                    });
+                } else {
+                    $("#msg").text("Please select a filter");
+                }
+            });
+            $("#filtercss").change(function() {
+                checkStyling();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="loader" style="display:none;">
+        <img class="ajax-loader" src="https://core.trac.wordpress.org/raw-attachment/ticket/21456/wpspin_light.gif" />
+    </div>
+    <div id="ajaxresults"></div>
+    <div id="msg">Please select a filter</div>
+    <select id="filter">
+        <option value="">Choose a filter</option>
+            <option value="name">Name</option>
+            <option value="age">Age</option>
+            <option value="address">Address</option>
+    </select>
+
+    <select id="filtercss">
+        <option value="">Choose a style</option>
+            <option value="wb">with cell border</option>
+            <option value="nb">no cell border</option>
+    </select>
+
+    <table id="tbl" style="border-style:solid;border-size:1px;">
+    </table>
+
+</body>
+
+</html>

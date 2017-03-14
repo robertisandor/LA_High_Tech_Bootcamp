@@ -1,0 +1,8 @@
+.rect {
+  background: blue;
+  display: none;
+  float: left;
+  height: 6em;
+  margin: 1em;
+  width: 6em;
+}

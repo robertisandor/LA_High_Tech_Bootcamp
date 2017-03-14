@@ -1,0 +1,26 @@
+body {
+    background-color: #98fb98;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    text-align: center;
+}
+
+header img {
+    float: left;
+    margin-right: 1em;
+}
+
+#main {
+    background-color: #e1edcf;
+    border-radius: 2em;
+    padding: 1em 1em 1em .5em;
+}
+
+nav {
+    clear: both;
+    margin: 1em 0em 0em 0em;
+}

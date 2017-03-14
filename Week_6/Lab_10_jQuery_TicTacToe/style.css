@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+}
+
+#tictactoe {
+    border: 1px solid black;
+  display: inline-block;
+}
+
+td {
+  border: 1px solid black;
+  height: 100px;
+  text-align: center;
+  width: 100px;
+}

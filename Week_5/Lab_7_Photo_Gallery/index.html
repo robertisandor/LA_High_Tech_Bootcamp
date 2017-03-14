@@ -1,0 +1,88 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link href="site.css" rel="stylesheet">
+    <style>
+        #gallery {
+            float: left;
+            width: 90px;
+            margin-right: 30px;
+            margin-left: 10px;
+            border-right: white 1px dotted;
+        }
+        
+        #gallery img {
+            display: inline-block;
+            margin: 0 0 10px 0;
+            border: 1px solid rgb(0, 0, 0);
+        }
+        
+        #photo {
+            margin-left: 150px;
+            position: relative;
+        }
+        
+        #photo img {
+            position: absolute;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            var images = ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide1%20(1).jpg",
+                "https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide2%20(1).jpg",
+                "https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide3%20(1).jpg",
+                "https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide4%20(1).jpg",
+                "https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide5%20(1).jpg",
+                "https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide6%20(1).jpg"
+            ];
+            
+            $("#photo").append("<img id=\"bigPhoto\">");
+            $("#bigPhoto").attr("src", images[0]);
+            $("#gallery > a").click(function(event) {
+                event.preventDefault();
+                var index = $(this).index();
+
+                $("#bigPhoto")
+                    .fadeOut(250, function() {
+                        $("#bigPhoto").attr("src", images[index])
+                    })
+                    
+                    .fadeIn({ duration: 250 });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <p class="logo">JavaScript <i>&amp;</i> jQuery <i class="mm">The<br>Missing<br>Manual</i></p>
+        </div>
+
+
+        <div class="content">
+            <div class="main">
+                <h1>Gallery</h1>
+                <div id="gallery">
+                    <a href="images/large/slide1.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide1_h.jpg" width="70" height="70" alt="golf balls"></a>
+                    <a href="images/large/slide2.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide2_h.jpg" width="70" height="70" alt="rock wall"></a>
+                    <a href="images/large/slide3.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide3_h.jpg" width="70" height="70" alt="old course"></a>
+                    <a href="images/large/slide4.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide4_h.jpg" width="70" height="70" alt="tees"></a>
+                    <a href="images/large/slide5.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide5_h.jpg" width="70" height="70" alt="tree"></a>
+                    <a href="images/large/slide6.jpg"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/706929/slide6_h.jpg" width="70" height="70" alt="ocean course"></a>
+                </div>
+                <div id="photo"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>JavaScript &amp; jQuery: The Missing Manual, by <a href="http://sawmac.com/">David McFarland</a>. Published by <a href="http://oreilly.com/">O'Reilly Media, Inc</a>.</p>
+        </div>
+    </div>
+</body>
+
+</html>

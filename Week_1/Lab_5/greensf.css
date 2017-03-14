@@ -1,0 +1,68 @@
+/* entire document*/
+
+#wrap {
+    background: #013220;
+    margin: 0 auto 0 auto; 
+    width: 80%;
+}
+
+/* header */
+
+header {
+    background: #013220;
+    color: #fff;
+    margin: .25em 0em .25em 0em;
+    padding: .25em .5em .25em .5em;
+    text-align: center;
+}
+
+h1 {
+    font: 62px 'Maven Pro', sans-serif;
+}
+
+li {
+    display: inline;
+    padding: 0 .25em 0 .25em;
+}
+
+nav {
+    background: #648b4c; 
+    font-family: Helvetica;
+    margin: 0em .25em 0em .25em;
+}
+
+#outlinedtext {
+    text-shadow: 2px 0px 5px #648b4c;
+}
+
+/* main body */
+
+#mainbody {
+    background: #fff;
+    margin: .25em .5em .25em .5em;
+    padding: .5em .25em 1.5em .25em;
+}
+
+#mainbody p {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* footer */
+
+footer {
+    background: #648b4c;
+    display: inline-block;
+    margin: 1em 0em 1em .5em;
+    text-align: center;
+    width: 98%;
+}
+
+footer p {
+    font-family: Helvetica;
+    margin: 0em 0em 0em .25em;
+    text-align: center;
+}
