@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  alert("jquery is working!");
   $("#aboutButton").click(function() {
     $('html,body').animate({
       scrollTop: $("#about").offset().top
