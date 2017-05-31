@@ -1,0 +1,102 @@
+use mycontacts
+
+db.persons.insert(
+[{
+        "name": "bob",
+        "age": 35,
+        "address": {
+            "street": "6565 sunset blvd",
+            "zip": "90028",
+            "city": "Los Angeles"
+        }
+    }, {
+        "name": "angela",
+        "age": 25,
+        "address": {
+            "street": "1234 Tropicana blvd",
+            "zip": "89100",
+            "city": "Las Vegas"
+        }
+    }, {
+        "name": "carol",
+        "age": 52,
+        "address": {
+            "street": "4232 melrose ave",
+            "zip": "90029",
+            "city": "Los Angeles"
+        }
+    }, {
+        "name": "jack",
+        "age": 63,
+        "address": {
+            "street": "345 Koval ave",
+            "zip": "90105",
+            "city": "Las Vegas"
+        }
+    }, {
+        "name": "celine",
+        "age": 21,
+        "address": {
+            "street": "20988 5th ave",
+            "zip": "10003",
+            "city": "New York"
+        }
+    }, {
+        "name": "Luke",
+        "age": 74,
+        "address": {
+            "street": "1344 first street",
+            "zip": "10105",
+            "city": "Bronx"
+        }
+    }, {
+        "name": "martin",
+        "age": 55,
+        "address": {
+            "street": "7644 66th street",
+            "zip": "10108",
+            "city": "Bronx"
+        }
+    }]
+)
+
+db.persons.find({ "name": "bob" })
+
+I could use regex to make this a case-insensitive query
+
+this needs some work 
+this query doesn't work right now
+db.persons.find(
+    { "name": "bob" },
+    {
+        $text:
+        {
+            $caseSensitive: false
+        }
+    }
+)
+
+the error I got was this:
+error: {
+        "$err" : "Can't canonicalize query: BadValue Unsupported projection option: $text: { $caseSensitive: false }",
+        "code" : 17287
+}
+
+db.persons.find({ "name": "Luke" })
+
+db.persons.update(
+    { "name": "bob" },
+    { 
+        $set: { "address.city": "Chicago" }
+    }
+)
+
+db.persons.find().pretty()
+
+db.persons.find({}, { _id:0, "name":1 })
+
+db.persons.find({"name": { $regex: "o"} })
+db.persons.find({"name": /o/})
+
+db.persons.find({"address.city": { $regex: "o"} })
+db.persons.find({"address.city": /o/})

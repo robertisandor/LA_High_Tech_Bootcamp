@@ -1,0 +1,111 @@
+use movies
+
+db.movies.insert([
+{
+    title : "John Wick",
+    year : 2014,
+    director: [
+        "Chad Stahelski",
+        "David Leitch"
+    ],
+    actors: [
+        "Keanu Reeves",
+        "Michael Nyqvist",
+        "Alfie Allen",
+        "Willem Dafoe"
+    ]
+},
+{
+    title : "The Hobbit: An Unexpected Journey",
+    year: 2012,
+    director: "Peter Jackson",
+    actors : [
+        "Ian McKellen",
+        "Martin Freeman",
+        "Richard Armitage",
+        "Ken Stott"
+    ]
+},
+{
+    title: "Independence Day",
+    year: 1996,
+    director: "Roland Emmerich",
+    actors: [
+        "Will Smith",
+        "Bill Pullman",
+        "Jeff Goldblum",
+        "Mary McDonnell"
+    ]
+}
+])
+
+db.movies.insert({
+    title: "Home Alone",
+    year: 1990,
+    director: "Chris Columbus",
+    actors: [
+        "Macaulay Culkin",
+        "Daniel Stern",
+        "John Heard"
+    ]
+})
+
+There are problems with these two entries. I have a feeling it's with the single quote
+in D'Onofrio and the "-" in Gordon-Levitt
+Nope. It had to do with the quotes. When I copied and pasted, it had curly quotes, which won't work
+only plain, straight quotes will work
+
+db.movies.insert({
+    title: "Men in Black",
+    year: 1997,
+    director: "Barry Sonnenfeld:",
+    actors: [
+        "Will Smith",
+        "Tommy Lee Jones",
+        "Linda Fiorentino",
+        "Vincent D'Onofrio"
+    ]
+})
+
+db.movies.insert({
+    title: "Inception",
+    year: 2010,
+    director: "Christopher Nolan",
+    actors: [
+        "Leonardo DiCaprio",
+        "Joseph Gordon-Levitt",
+        "Ellen Page",
+        "Tom Hardy"
+    ]
+})
+
+db.movies.find().pretty()
+
+db.movies.find({ "director": "Christopher Nolan" })
+
+db.movies.find({ "actors": "Will Smith" })
+
+db.movies.find(
+    {
+        $and: [
+            { "year": { $gte: 1990 } },
+            { "year": { $lt: 2000 } }
+        ]
+    }
+)
+
+db.movies.find({ "year": { $gt:2010 } })
+
+db.movies.update(
+    { "title": "Home Alone" },
+    {
+        $addToSet: { actors: "Joe Pesci" }
+    }
+)
+
+db.movies.update(
+    { "title": "Men in Black"},
+    {
+        $set: { "plot": "A police officer joins a secret organization that polices and monitors extraterrestrial interactions on Earth." }
+    }
+)

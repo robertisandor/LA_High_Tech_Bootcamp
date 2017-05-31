@@ -1,0 +1,87 @@
+db.pets.insert({
+    name: "Rusty",
+    breed: "Corgi",
+    owner: "Colt"
+})
+
+db.pets.insert([
+    {
+        name: "Lulu",
+        breed: "Husky",
+        owner: "Colt"
+    },
+    {
+        name: "Puppy",
+        breed: "Labrador",
+        owner: "Colt"
+    }
+])
+
+db.pets.insert([
+    {
+        name: "Bjorn",
+        breed: "German Shepherd",
+        owner: "Anne"
+    },
+    {
+        name: "Interceptor",
+        breed: "Doberman",
+        owner: "Shadow"
+    },
+    {
+        name: "Blaze",
+        breed: "Husky",
+        owner: "Amanda"
+    }
+])
+
+db.pets.insert([
+    {
+        name: "Akira",
+        breed: "Husky",
+        owner: "Amanda"
+    },
+    {
+        name: "Hachi",
+        breed: "Maltese",
+        owner: "Nana"
+    },
+    {
+        name: "Bebop",
+        breed: "Pomeranian",
+        owner: "Karl"
+    },
+    {
+        name: "Beemer",
+        breed: "Beagle",
+        owner: "Ash"
+    }
+])
+
+db.pets.find()
+
+db.pets.find({ "breed": "Husky" })
+
+db.pets.find({ "owner": "Colt" })
+
+db.pets.update(
+    { "name": "Puppy" },
+    {
+        $set: { "name": "Puppi" }
+    }
+)
+
+db.pets.update(
+    { "name": "Interceptor"},
+    {
+        $set: { "notes": "Interceptors is aggressive. Walk him alone." }
+    }
+)
+
+db.pets.insert({
+    name: "Sticky",
+    breed: "Golden Retriever",
+    owner: "Samantha"
+})
+
+db.pets.remove({ "owner": "Amanda" })

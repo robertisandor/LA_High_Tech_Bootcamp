@@ -6,7 +6,7 @@
     <link href="css/main.css" rel="stylesheet" />
 </head>
 
-<body>
+<body data-ng-app="ExerciseApp">
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -14,24 +14,24 @@
         </div>
     </nav>
 
-    <div class="main">
-        <div class="container">
+    <div class="main" data-ng-controller="MainController">
+        <div class="container" ng-repeat="exercise in exercises">
 
             <!--
         TODO: Loop through exercises and display each one with this HTML
-  
-        <div class="row">
-          <div class="exercise-icon col-xs-2"> </div>
-            
-          <div class="col-xs-6">
-            <p class="exercise-name"> </p>
-          </div>
-          
-          <div class="col-xs-4 counters">
-            <span class="decrease">-</span><span class="count">  </span><span class="increase">+</span>
-          </div>
-        </div>
-         -->
+          -->
+            <div class="row" >
+                <div class="exercise-icon col-xs-2"></div>
+
+                <div class="col-xs-6">
+                    <p class="exercise-name"> {{ exercise.name }} </p>
+                </div>
+
+                <div class="col-xs-4 counters">
+                    <span class="decrease" ng-click="decrease($index)">-</span><span class="count"> {{ exercise.count }} </span><span class="increase" ng-click="increase($index)">+</span>
+                </div>
+            </div>
+
 
         </div>
     </div>

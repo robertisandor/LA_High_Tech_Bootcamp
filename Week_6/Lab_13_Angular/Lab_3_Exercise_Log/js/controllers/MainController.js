@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', function($scope) {
+exerciseApp.controller('MainController', ['$scope', function($scope) {
     $scope.exercises = [{
         name: 'Pushups',
         count: 20
@@ -22,4 +22,12 @@ app.controller('MainController', ['$scope', function($scope) {
         count: 15
     }];
 
+    $scope.increase = function(indexOfExercise) {
+        $scope.exercises[indexOfExercise].count++;
+    };
+    
+    // needs to be revised
+    $scope.decrease = function(indexOfExercise) {
+        $scope.exercises[indexOfExercise].count--;
+    }
 }]);
